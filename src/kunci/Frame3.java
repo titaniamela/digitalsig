@@ -12,6 +12,9 @@ import javax.swing.JOptionPane;
  */
 public class Frame3 extends javax.swing.JFrame {
 
+    private String txtisi;
+    private String txtPrivat;
+
     /**
      * Creates new form Frame3
      */
@@ -31,7 +34,7 @@ public class Frame3 extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        txtisi = new javax.swing.JTextArea();
+        txthasil = new javax.swing.JTextArea();
         jLabel3 = new javax.swing.JLabel();
         btnhash = new javax.swing.JButton();
         jScrollPane3 = new javax.swing.JScrollPane();
@@ -53,9 +56,9 @@ public class Frame3 extends javax.swing.JFrame {
 
         jLabel2.setText("Hasil konversi ke text");
 
-        txtisi.setColumns(20);
-        txtisi.setRows(5);
-        jScrollPane1.setViewportView(txtisi);
+        txthasil.setColumns(20);
+        txthasil.setRows(5);
+        jScrollPane1.setViewportView(txthasil);
 
         jLabel3.setText("Kunci Privat");
 
@@ -192,6 +195,8 @@ public class Frame3 extends javax.swing.JFrame {
 
     private void btnhashActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnhashActionPerformed
         JOptionPane.showMessageDialog(this, "Proses mendapatkan message digest (intisari)", "Info", JOptionPane.INFORMATION_MESSAGE);
+        txthasil.setText(txtisi);
+        txtP.setText(txtPrivat);
     }//GEN-LAST:event_btnhashActionPerformed
 
     private void btnsignActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnsignActionPerformed
@@ -259,7 +264,7 @@ public class Frame3 extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JTextField txtP;
-    private javax.swing.JTextArea txtisi;
+    private javax.swing.JTextArea txthasil;
     private javax.swing.JTextArea txtmessage;
     private javax.swing.JTextArea txttd;
     // End of variables declaration//GEN-END:variables

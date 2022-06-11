@@ -118,6 +118,7 @@ JFileChooser dialog = new JFileChooser();
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnbrowseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnbrowseActionPerformed
+        dialog.setCurrentDirectory(new File("."));
         int pfile = dialog.showOpenDialog(this);
         
         if(pfile == JFileChooser.APPROVE_OPTION){
