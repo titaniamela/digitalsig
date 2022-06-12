@@ -141,7 +141,7 @@ JFileChooser dialog = new JFileChooser();
             BufferedReader br = new BufferedReader(new InputStreamReader(in));
             String strline;
             while ((strline = br.readLine())!=null){
-            StringTokenizer st = new StringTokenizer(strline,".");
+            StringTokenizer st = new StringTokenizer(strline,"");
             txtisi.setText(txtisi.getText()+st.nextToken() + "\n");
             }
             in.close();
