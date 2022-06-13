@@ -44,6 +44,10 @@ public Kunci(){
      * @param args the command line arguments
      */
     public static void main(String[] args) {
+       Frame2 fr2 = new Frame2();
+       fr2.setVisible(true);
        
+       Frame fr = new Frame();
+       fr.setVisible(true);
     }
 }

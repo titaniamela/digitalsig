@@ -194,6 +194,11 @@ Kunci kcn;
         Frame2 frame2 = new Frame2();
         frame2.setVisible(true);
         this.dispose();
+        
+        Frame3 frame3 = new Frame3();
+        Frame3.txtP.setText(this.txtPrivat.getText());
+        
+        
     }//GEN-LAST:event_toFrame2ActionPerformed
 
     /**
@@ -245,7 +250,7 @@ Kunci kcn;
     private javax.swing.JButton toFrame2;
     private javax.swing.JTextField txtE;
     private javax.swing.JTextField txtP;
-    private javax.swing.JTextField txtPrivat;
+    public static javax.swing.JTextField txtPrivat;
     private javax.swing.JTextField txtPublik;
     private javax.swing.JTextField txtQ;
     // End of variables declaration//GEN-END:variables

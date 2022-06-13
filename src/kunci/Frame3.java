@@ -56,6 +56,7 @@ public class Frame3 extends javax.swing.JFrame {
 
         jLabel2.setText("Hasil konversi ke text");
 
+        txthasil.setEditable(false);
         txthasil.setColumns(20);
         txthasil.setRows(5);
         jScrollPane1.setViewportView(txthasil);
@@ -195,8 +196,8 @@ public class Frame3 extends javax.swing.JFrame {
 
     private void btnhashActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnhashActionPerformed
         JOptionPane.showMessageDialog(this, "Proses mendapatkan message digest (intisari)", "Info", JOptionPane.INFORMATION_MESSAGE);
-        txthasil.setText(txtisi);
-        txtP.setText(txtPrivat);
+        txthasil.setText(Frame2.txtisi.getText());
+        txtP.setText(Frame.txtPrivat.getText());
     }//GEN-LAST:event_btnhashActionPerformed
 
     private void btnsignActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnsignActionPerformed
@@ -263,8 +264,8 @@ public class Frame3 extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
-    private javax.swing.JTextField txtP;
-    private javax.swing.JTextArea txthasil;
+    public static javax.swing.JTextField txtP;
+    public static javax.swing.JTextArea txthasil;
     private javax.swing.JTextArea txtmessage;
     private javax.swing.JTextArea txttd;
     // End of variables declaration//GEN-END:variables

@@ -15,6 +15,7 @@ import javax.swing.JFileChooser;
  */
 public class Frame2 extends javax.swing.JFrame {
 JFileChooser dialog = new JFileChooser();
+
     /**
      * Creates new form Frame2
      */
@@ -152,6 +153,7 @@ JFileChooser dialog = new JFileChooser();
 
     private void toFrame3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_toFrame3ActionPerformed
         Frame3 frame3 = new Frame3();
+        Frame3.txthasil.setText(this.txtisi.getText());
         frame3.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_toFrame3ActionPerformed
@@ -197,7 +199,17 @@ JFileChooser dialog = new JFileChooser();
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JButton toFrame3;
-    private javax.swing.JTextArea txtisi;
+    public static javax.swing.JTextArea txtisi;
     private javax.swing.JTextField txtpath;
     // End of variables declaration//GEN-END:variables
+
+    private static class frame2 {
+
+        public frame2() {
+        }
+
+        private void setVisible(boolean b) {
+            throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        }
+    }
 }
