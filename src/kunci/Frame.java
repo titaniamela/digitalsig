@@ -74,6 +74,10 @@ Kunci kcn;
 
         jLabel9.setText("Kunci Privat");
 
+        txtPublik.setEditable(false);
+
+        txtPrivat.setEditable(false);
+
         toFrame2.setText("Simpan");
         toFrame2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

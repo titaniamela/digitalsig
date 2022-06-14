@@ -40,13 +40,15 @@ public class Frame3 extends javax.swing.JFrame {
         jScrollPane3 = new javax.swing.JScrollPane();
         txtmessage = new javax.swing.JTextArea();
         jLabel4 = new javax.swing.JLabel();
-        jScrollPane4 = new javax.swing.JScrollPane();
-        txttd = new javax.swing.JTextArea();
         jLabel5 = new javax.swing.JLabel();
-        btnsign = new javax.swing.JButton();
         btnappend = new javax.swing.JButton();
         btnSave = new javax.swing.JButton();
         txtP = new javax.swing.JTextField();
+        jLabel6 = new javax.swing.JLabel();
+        inputM = new javax.swing.JTextField();
+        jLabel7 = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
+        jLabel9 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Digital Signature");
@@ -76,18 +78,7 @@ public class Frame3 extends javax.swing.JFrame {
 
         jLabel4.setText("Hasil message digest");
 
-        txttd.setColumns(20);
-        txttd.setRows(5);
-        jScrollPane4.setViewportView(txttd);
-
-        jLabel5.setText("Tanda Tangan");
-
-        btnsign.setText("Sign");
-        btnsign.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnsignActionPerformed(evt);
-            }
-        });
+        jLabel5.setText("Digital Signature");
 
         btnappend.setText("Append");
         btnappend.addActionListener(new java.awt.event.ActionListener() {
@@ -109,6 +100,17 @@ public class Frame3 extends javax.swing.JFrame {
             }
         });
 
+        jLabel6.setFont(new java.awt.Font("Segoe UI", 0, 8)); // NOI18N
+        jLabel6.setText("*klik untuk mendapatkan message digest");
+
+        jLabel7.setText("M");
+
+        jLabel8.setFont(new java.awt.Font("Segoe UI", 0, 8)); // NOI18N
+        jLabel8.setText("proses signing dengan menginputkan angka");
+
+        jLabel9.setFont(new java.awt.Font("Segoe UI", 0, 8)); // NOI18N
+        jLabel9.setText("penggabungan message digest (proses enkripsi)");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -125,20 +127,21 @@ public class Frame3 extends javax.swing.JFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(34, 34, 34)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(jLabel5)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(jLabel3)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(txtP, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(5, 5, 5))))
+                                .addComponent(jLabel3)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(txtP, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(layout.createSequentialGroup()
-                                .addGap(58, 58, 58)
-                                .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(btnSave)
-                                    .addComponent(btnsign)))))
+                                .addGap(55, 55, 55)
+                                .addComponent(jLabel5)
+                                .addGap(168, 168, 168)
+                                .addComponent(btnSave))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(80, 80, 80)
+                                .addComponent(jLabel7)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(inputM, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jLabel8))))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(264, 264, 264)
                         .addComponent(jLabel1)))
@@ -146,9 +149,15 @@ public class Frame3 extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btnappend)
-                    .addComponent(btnhash))
-                .addGap(322, 322, 322))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(btnhash)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(btnappend)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 178, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(145, 145, 145))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -167,24 +176,28 @@ public class Frame3 extends javax.swing.JFrame {
                             .addComponent(jLabel3)
                             .addComponent(txtP, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addGap(18, 18, 18)
-                .addComponent(btnhash)
-                .addGap(25, 25, 25)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel4)
-                    .addComponent(jLabel5))
+                    .addComponent(btnhash)
+                    .addComponent(jLabel6))
+                .addGap(25, 25, 25)
+                .addComponent(jLabel4)
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(29, 29, 29)
-                                .addComponent(btnsign)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 107, Short.MAX_VALUE)
-                        .addComponent(btnappend)
+                        .addGap(32, 32, 32)
+                        .addComponent(jLabel5)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel7)
+                            .addComponent(inputM, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel8))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 113, Short.MAX_VALUE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(btnappend)
+                            .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(26, 26, 26)
                         .addComponent(btnSave)
                         .addGap(27, 27, 27))))
@@ -200,12 +213,8 @@ public class Frame3 extends javax.swing.JFrame {
         txtP.setText(Frame.txtPrivat.getText());
     }//GEN-LAST:event_btnhashActionPerformed
 
-    private void btnsignActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnsignActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnsignActionPerformed
-
     private void btnappendActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnappendActionPerformed
-        // TODO add your handling code here:
+        JOptionPane.showMessageDialog(this, "Semua proses telah selesai dilakukan", "Info", JOptionPane.INFORMATION_MESSAGE);
     }//GEN-LAST:event_btnappendActionPerformed
 
     private void btnSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveActionPerformed
@@ -255,18 +264,20 @@ public class Frame3 extends javax.swing.JFrame {
     private javax.swing.JButton btnSave;
     private javax.swing.JButton btnappend;
     private javax.swing.JButton btnhash;
-    private javax.swing.JButton btnsign;
+    private javax.swing.JTextField inputM;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane3;
-    private javax.swing.JScrollPane jScrollPane4;
     public static javax.swing.JTextField txtP;
     public static javax.swing.JTextArea txthasil;
     private javax.swing.JTextArea txtmessage;
-    private javax.swing.JTextArea txttd;
     // End of variables declaration//GEN-END:variables
 }
