@@ -200,7 +200,7 @@ Kunci kcn;
         this.dispose();
         
         Frame3 frame3 = new Frame3();
-        Frame3.txtP.setText(this.txtPrivat.getText());
+        Frame3.txtKey.setText(this.txtPrivat.getText());
         
         
     }//GEN-LAST:event_toFrame2ActionPerformed
