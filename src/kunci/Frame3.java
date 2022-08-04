@@ -4,7 +4,10 @@
  */
 package kunci;
 
+import java.security.NoSuchAlgorithmException;
 import static java.util.Objects.hash;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.JTextArea;
 
@@ -93,6 +96,7 @@ public class Frame3 extends javax.swing.JFrame {
             }
         });
 
+        txtKey.setEditable(false);
         txtKey.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtKeyActionPerformed(evt);
@@ -190,8 +194,12 @@ public class Frame3 extends javax.swing.JFrame {
         JOptionPane.showMessageDialog(this, "Proses mendapatkan message digest (intisari)", "Info", JOptionPane.INFORMATION_MESSAGE);
         txthasil.setText(Frame2.txtisi.getText());
         Hsh = new hash ();
-        Hsh.main();
-        txtmessage.setText(this.Hsh.toString());
+        try {
+            Hsh.main();
+        } catch (NoSuchAlgorithmException ex) {
+            Logger.getLogger(Frame3.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        txtmessage.setText(Hsh.toString());
         txtKey.setText(Frame.txtPrivat.getText());
         
     }//GEN-LAST:event_btnhashActionPerformed

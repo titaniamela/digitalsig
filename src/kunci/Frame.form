@@ -177,10 +177,22 @@
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="txtP">
+      <Properties>
+        <Property name="editable" type="boolean" value="false"/>
+        <Property name="text" type="java.lang.String" value="3"/>
+      </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="txtQ">
+      <Properties>
+        <Property name="editable" type="boolean" value="false"/>
+        <Property name="text" type="java.lang.String" value="11"/>
+      </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="txtE">
+      <Properties>
+        <Property name="editable" type="boolean" value="false"/>
+        <Property name="text" type="java.lang.String" value="7"/>
+      </Properties>
     </Component>
     <Component class="javax.swing.JButton" name="btnGenerate">
       <Properties>

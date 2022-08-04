@@ -58,6 +58,15 @@ Kunci kcn;
 
         jLabel5.setText("e");
 
+        txtP.setEditable(false);
+        txtP.setText("3");
+
+        txtQ.setEditable(false);
+        txtQ.setText("11");
+
+        txtE.setEditable(false);
+        txtE.setText("7");
+
         btnGenerate.setText("Generate Key");
         btnGenerate.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

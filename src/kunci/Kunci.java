@@ -18,17 +18,11 @@ BigInteger pmath,qmath,nmath,zmath,Emath,dmath;
      qmath = new BigInteger(q);
      Emath = new BigInteger(e);
     }
-public Kunci(){
-    
-}
+
     public void check() {
         if(pmath.gcd(qmath).intValue()==1&&pmath.isProbablePrime(2)&&qmath.isProbablePrime(2)){
            nmath = pmath.multiply(qmath);
            zmath = pmath.subtract(BigInteger.ONE).multiply(qmath.subtract(BigInteger.ONE));
-           /*Emath = new BigInteger("4");
-           while(Emath.gcd(zmath).intValue()!=1){
-               Emath = Emath.add(new BigInteger("1"));
-           }*/
            dmath = Emath.modInverse(zmath);
            
        } 
