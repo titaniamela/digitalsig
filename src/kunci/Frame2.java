@@ -61,6 +61,7 @@ JFileChooser dialog = new JFileChooser();
         });
 
         txtisi.setColumns(20);
+        txtisi.setLineWrap(true);
         txtisi.setRows(5);
         jScrollPane1.setViewportView(txtisi);
 

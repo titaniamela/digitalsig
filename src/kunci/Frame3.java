@@ -4,10 +4,17 @@
  */
 package kunci;
 
+import java.security.KeyFactory;
+import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
+import java.security.PrivateKey;
+import java.security.spec.PKCS8EncodedKeySpec;
+import java.util.Base64;
 import static java.util.Objects.hash;
+import java.util.Scanner;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.crypto.Cipher;
 import javax.swing.JOptionPane;
 import javax.swing.JTextArea;
 
@@ -17,7 +24,7 @@ import javax.swing.JTextArea;
  */
 public class Frame3 extends javax.swing.JFrame {
     hash Hsh;
-
+    enkripsi enk;
     private String txtisi;
     private String txtPrivat;
    
@@ -64,6 +71,7 @@ public class Frame3 extends javax.swing.JFrame {
 
         txthasil.setEditable(false);
         txthasil.setColumns(20);
+        txthasil.setLineWrap(true);
         txthasil.setRows(5);
         jScrollPane1.setViewportView(txthasil);
 
@@ -76,8 +84,11 @@ public class Frame3 extends javax.swing.JFrame {
             }
         });
 
+        txtmessage.setEditable(false);
         txtmessage.setColumns(20);
+        txtmessage.setLineWrap(true);
         txtmessage.setRows(5);
+        txtmessage.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         jScrollPane3.setViewportView(txtmessage);
 
         jLabel4.setText("Hasil message digest");
@@ -97,11 +108,6 @@ public class Frame3 extends javax.swing.JFrame {
         });
 
         txtKey.setEditable(false);
-        txtKey.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtKeyActionPerformed(evt);
-            }
-        });
 
         jLabel6.setFont(new java.awt.Font("Segoe UI", 0, 8)); // NOI18N
         jLabel6.setText("*klik untuk mendapatkan message digest");
@@ -193,28 +199,43 @@ public class Frame3 extends javax.swing.JFrame {
     private void btnhashActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnhashActionPerformed
         JOptionPane.showMessageDialog(this, "Proses mendapatkan message digest (intisari)", "Info", JOptionPane.INFORMATION_MESSAGE);
         txthasil.setText(Frame2.txtisi.getText());
-        Hsh = new hash ();
         try {
+            hash Hsh = new hash ();
             Hsh.main();
+            byte [] input = txthasil.getText().getBytes();
+            MessageDigest SHA256 = MessageDigest.getInstance("SHA-256");
+            SHA256.update(input);
+            byte [] digest = SHA256.digest();
+            StringBuffer hexDigest = new StringBuffer();
+            for (int i=0 ;i<digest.length; i++)
+                hexDigest.append(Integer.toString((digest[i]&0xff)+0x100,16).substring(1));
+            txtmessage.setText(hexDigest.toString());
+            
+           /* Scanner in = new Scanner (System.in);
+            String input = txthasil.getText();      
+            MessageDigest md = MessageDigest.getInstance("SHA-256");
+            md.update(input.getBytes());
+            byte[] digest = md.digest();
+            StringBuffer sb = new StringBuffer();
+            for (byte b : digest){
+            sb.append(String.format("%02x", b & 0xff));
+            txtmessage.setText(sb.toString());
+            }*/
         } catch (NoSuchAlgorithmException ex) {
-            Logger.getLogger(Frame3.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(hash.class.getName()).log(Level.SEVERE, null, ex);   
         }
-        txtmessage.setText(Hsh.toString());
         txtKey.setText(Frame.txtPrivat.getText());
-        
     }//GEN-LAST:event_btnhashActionPerformed
 
     private void btnsignActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnsignActionPerformed
         JOptionPane.showMessageDialog(this, "Semua proses telah selesai dilakukan", "Info", JOptionPane.INFORMATION_MESSAGE);
+        
     }//GEN-LAST:event_btnsignActionPerformed
 
     private void btnSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveActionPerformed
-        JOptionPane.showMessageDialog(this, "Data Telah Disimpan", "Info", JOptionPane.INFORMATION_MESSAGE);
+        /*JOptionPane.showMessageDialog(this, "Data Telah Disimpan", "Info", JOptionPane.INFORMATION_MESSAGE);*/
+        System.exit(0);
     }//GEN-LAST:event_btnSaveActionPerformed
-
-    private void txtKeyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtKeyActionPerformed
-        
-    }//GEN-LAST:event_txtKeyActionPerformed
 
     /**
      * @param args the command line arguments
@@ -265,7 +286,7 @@ public class Frame3 extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane3;
     public static javax.swing.JTextField txtKey;
     public static javax.swing.JTextArea txthasil;
-    private javax.swing.JTextArea txtmessage;
+    public static transient javax.swing.JTextArea txtmessage;
     // End of variables declaration//GEN-END:variables
 
 }
