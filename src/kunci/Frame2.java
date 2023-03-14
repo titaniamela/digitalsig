@@ -9,6 +9,18 @@ import java.io.*;
 import java.nio.file.Path;
 import java.util.StringTokenizer;
 import javax.swing.JFileChooser;
+
+import java.io.File;
+import java.io.IOException;
+import java.io.BufferedReader;
+import java.io.OutputStream;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.io.ByteArrayOutputStream;
+import java.util.Base64;
+
+
+
 /**
  *
  * @author Shania
@@ -134,7 +146,7 @@ JFileChooser dialog = new JFileChooser();
     }//GEN-LAST:event_btnbrowseActionPerformed
 
     private void btntampilActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btntampilActionPerformed
-        txtisi.setText(null);
+    txtisi.setText(null);
         String p = txtpath.getText();
         File file = new File(p);
         try {
@@ -148,7 +160,7 @@ JFileChooser dialog = new JFileChooser();
             }
             in.close();
         } catch (Exception e){
-            System.out.println("Error :" + e.getMessage());
+            System.out.println("Error :" + e.getMessage());    
         }
     }//GEN-LAST:event_btntampilActionPerformed
 

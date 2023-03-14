@@ -1,14 +1,16 @@
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
+ * Clonick nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package kunci;
 
+import java.math.BigInteger;
 import java.security.KeyFactory;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.security.PrivateKey;
 import java.security.spec.PKCS8EncodedKeySpec;
+import java.util.Arrays;
 import java.util.Base64;
 import static java.util.Objects.hash;
 import java.util.Scanner;
@@ -17,6 +19,10 @@ import java.util.logging.Logger;
 import javax.crypto.Cipher;
 import javax.swing.JOptionPane;
 import javax.swing.JTextArea;
+import static kunci.Frame.txtE;
+import static kunci.Frame.txtP;
+import static kunci.Frame.txtQ;
+
 
 /**
  *
@@ -24,10 +30,9 @@ import javax.swing.JTextArea;
  */
 public class Frame3 extends javax.swing.JFrame {
     hash Hsh;
-    enkripsi enk;
+    enkripsi enkrip;
     private String txtisi;
     private String txtPrivat;
-   
     
 
     /**
@@ -56,7 +61,6 @@ public class Frame3 extends javax.swing.JFrame {
         txtmessage = new javax.swing.JTextArea();
         jLabel4 = new javax.swing.JLabel();
         btnsign = new javax.swing.JButton();
-        btnSave = new javax.swing.JButton();
         txtKey = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
@@ -97,13 +101,6 @@ public class Frame3 extends javax.swing.JFrame {
         btnsign.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnsignActionPerformed(evt);
-            }
-        });
-
-        btnSave.setText("Simpan");
-        btnSave.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnSaveActionPerformed(evt);
             }
         });
 
@@ -149,10 +146,6 @@ public class Frame3 extends javax.swing.JFrame {
                         .addGap(264, 264, 264)
                         .addComponent(jLabel1)))
                 .addContainerGap(103, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btnSave)
-                .addGap(44, 44, 44))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -187,9 +180,7 @@ public class Frame3 extends javax.swing.JFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(btnhash)
                             .addComponent(jLabel6))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btnSave)
-                        .addGap(26, 26, 26))))
+                        .addGap(26, 441, Short.MAX_VALUE))))
         );
 
         pack();
@@ -210,17 +201,6 @@ public class Frame3 extends javax.swing.JFrame {
             for (int i=0 ;i<digest.length; i++)
                 hexDigest.append(Integer.toString((digest[i]&0xff)+0x100,16).substring(1));
             txtmessage.setText(hexDigest.toString());
-            
-           /* Scanner in = new Scanner (System.in);
-            String input = txthasil.getText();      
-            MessageDigest md = MessageDigest.getInstance("SHA-256");
-            md.update(input.getBytes());
-            byte[] digest = md.digest();
-            StringBuffer sb = new StringBuffer();
-            for (byte b : digest){
-            sb.append(String.format("%02x", b & 0xff));
-            txtmessage.setText(sb.toString());
-            }*/
         } catch (NoSuchAlgorithmException ex) {
             Logger.getLogger(hash.class.getName()).log(Level.SEVERE, null, ex);   
         }
@@ -228,14 +208,28 @@ public class Frame3 extends javax.swing.JFrame {
     }//GEN-LAST:event_btnhashActionPerformed
 
     private void btnsignActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnsignActionPerformed
-        JOptionPane.showMessageDialog(this, "Semua proses telah selesai dilakukan", "Info", JOptionPane.INFORMATION_MESSAGE);
+        JOptionPane.showMessageDialog(this, "Menampilkan Digital Signature", "Info", JOptionPane.INFORMATION_MESSAGE);
+        Frame4 frame4 = new Frame4();
+        Frame4.txtFinal.getText();
+        frame4.setVisible(true);
+        this.dispose();
+        enkrip = new enkripsi(Frame.txtP.getText(), Frame.txtQ.getText(), Frame.txtE.getText());
+        enkrip.check();
         
-    }//GEN-LAST:event_btnsignActionPerformed
+          /*  String M = txtmessage.getText();
+            BigInteger n = Frame.kcn.pmath.multiply(Frame.kcn.qmath);
+            BigInteger m = new BigInteger(M.getBytes());
+        if (m.compareTo(n) == 1) throw new IllegalArgumentException("message too long - increase bitLength or split the message");
 
-    private void btnSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveActionPerformed
-        /*JOptionPane.showMessageDialog(this, "Data Telah Disimpan", "Info", JOptionPane.INFORMATION_MESSAGE);*/
-        System.exit(0);
-    }//GEN-LAST:event_btnSaveActionPerformed
+        // He then computes the ciphertext c corresponding to: {@code c = m^e mod n}
+        byte[] c = m.modPow(Frame.kcn.Emath, n).toByteArray();
+        System.out.println("c   = " + Arrays.toString(c));
+                
+        Frame4 frame4 = new Frame4();
+        Frame4.txtFinal.setText(Frame3.txthasil.getText());
+        frame4.setVisible(true);
+        this.dispose();*/
+    }//GEN-LAST:event_btnsignActionPerformed
 
     /**
      * @param args the command line arguments
@@ -273,7 +267,6 @@ public class Frame3 extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnSave;
     private javax.swing.JButton btnhash;
     private javax.swing.JButton btnsign;
     private javax.swing.JLabel jLabel1;
@@ -286,7 +279,7 @@ public class Frame3 extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane3;
     public static javax.swing.JTextField txtKey;
     public static javax.swing.JTextArea txthasil;
-    public static transient javax.swing.JTextArea txtmessage;
+    public static javax.swing.JTextArea txtmessage;
     // End of variables declaration//GEN-END:variables
 
 }

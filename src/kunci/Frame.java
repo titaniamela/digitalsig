@@ -16,6 +16,9 @@ Kunci kcn;
      */
     public Frame() {
         initComponents();
+        /*txtP.setText("3");
+        txtQ.setText("11");
+        txtE.setText("7");*/
     }
 
     /**
@@ -261,10 +264,10 @@ Kunci kcn;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JButton toFrame2;
-    private javax.swing.JTextField txtE;
-    private javax.swing.JTextField txtP;
+    public static javax.swing.JTextField txtE;
+    public static javax.swing.JTextField txtP;
     public static javax.swing.JTextField txtPrivat;
-    private javax.swing.JTextField txtPublik;
-    private javax.swing.JTextField txtQ;
+    public static javax.swing.JTextField txtPublik;
+    public static javax.swing.JTextField txtQ;
     // End of variables declaration//GEN-END:variables
 }

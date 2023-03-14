@@ -14,9 +14,9 @@ public class Kunci {
 BigInteger pmath,qmath,nmath,zmath,Emath,dmath;
 
     public Kunci(String p, String q, String e) {
-     pmath = new BigInteger(p); 
-     qmath = new BigInteger(q);
-     Emath = new BigInteger(e);
+     pmath = new BigInteger(p); // pmath = new BigInteger("3");
+     qmath = new BigInteger(q); // qmath = new BigInteger("11");
+     Emath = new BigInteger(e); // Emath = new BigInteger("7");
     }
 
     public void check() {
@@ -29,9 +29,9 @@ BigInteger pmath,qmath,nmath,zmath,Emath,dmath;
       if(Emath.equals(dmath)){
               dmath = dmath.add(zmath);
               dmath = dmath.mod(nmath);
-               System.out.println(dmath);
+               /*System.out.println(dmath);*/
            }
-        System.out.println(nmath+"   "+zmath+"   "+Emath+"   "+dmath);
+        /*System.out.println(nmath+"   "+zmath+"   "+Emath+"   "+dmath);*/
         }
 
 /**
